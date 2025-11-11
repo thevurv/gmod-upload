@@ -31,15 +31,15 @@ runs:
         mkdir ~/Steam
         curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf - -C ~/Steam
 
-    - name: Download Lua 5.3
-      shell: bash
-      run: |
-        sudo apt-get install lua5.3
+    - name: Setup Lua
+      uses: leafo/gh-actions-lua@v12
+      with:
+          luaVersion: "5.3"
 
     - name: Run gma packer
       shell: bash
       run: |
-        lua5.3 ${{ github.action_path }}/gma.lua ${{ inputs.id }}.gma ${{ inputs.config }}
+        lua ${{ github.action_path }}/gma.lua ${{ inputs.id }}.gma ${{ inputs.config }}
 
     - name: Create .vdf file
       shell: bash
