@@ -212,7 +212,7 @@ do
 				end
 			end
 
-			print("Warning: File " .. normalized .. " not whitelisted. Skipping..")
+			print("::warning file=" .. normalized .. "::File not whitelisted. Skipping..")
 			::cont::
 		end
 
